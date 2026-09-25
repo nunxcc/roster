@@ -1,0 +1,416 @@
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+
+.btn {
+  --h: 38px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--h);
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 550;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  user-select: none;
+  transition:
+    background 0.2s var(--ease),
+    border-color 0.2s var(--ease),
+    color 0.2s var(--ease),
+    transform 0.15s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.sm {
+  --h: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.sm svg {
+  width: 14px;
+  height: 14px;
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 70%, white) inset,
+    0 8px 24px -8px var(--accent-mid);
+}
+
+.primary:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--accent) 88%, white);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 70%, white) inset,
+    0 10px 30px -6px var(--accent-line);
+}
+
+.secondary {
+  background: rgb(255 255 255 / 0.06);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+}
+
+.secondary:hover:not(:disabled) {
+  background: rgb(255 255 255 / 0.1);
+  border-color: var(--line-3);
+}
+
+.ghost {
+  color: var(--text-2);
+}
+
+.ghost:hover:not(:disabled) {
+  color: var(--text);
+  background: rgb(255 255 255 / 0.06);
+}
+
+.danger {
+  background: color-mix(in oklab, var(--danger) 16%, transparent);
+  color: color-mix(in oklab, var(--danger) 70%, white);
+  border: 1px solid color-mix(in oklab, var(--danger) 35%, transparent);
+}
+
+.danger:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--danger) 26%, transparent);
+}
+
+.icon {
+  --h: 36px;
+  width: var(--h);
+  padding: 0;
+  color: var(--text-2);
+}
+
+.icon.sm {
+  --h: 30px;
+}
+
+.icon:hover:not(:disabled) {
+  color: var(--text);
+  background: rgb(255 255 255 / 0.08);
+}
+
+.icon.glass {
+  background: rgb(10 10 14 / 0.55);
+  backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+}
+
+.icon.glass:hover {
+  background: rgb(20 20 26 / 0.8);
+}
+
+/* ─── Fields ──────────────────────────────────────────────────────────────── */
+
+.field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-2);
+}
+
+.hint {
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--text-3);
+}
+
+.input {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: var(--r-sm);
+  background: rgb(255 255 255 / 0.035);
+  border: 1px solid var(--line-2);
+  outline: none;
+  transition:
+    border-color 0.2s var(--ease),
+    background 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
+}
+
+.input::placeholder {
+  color: var(--text-3);
+}
+
+.input:hover {
+  border-color: var(--line-3);
+}
+
+.input:focus {
+  border-color: var(--accent-line);
+  background: rgb(255 255 255 / 0.05);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+textarea.input {
+  resize: vertical;
+  line-height: 1.6;
+  min-height: 96px;
+}
+
+select.input {
+  appearance: none;
+  padding-right: 36px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23aba7b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+select.input option {
+  background: var(--panel-2);
+}
+
+.bigInput {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  padding: 8px 14px;
+}
+
+/* ─── Chips ───────────────────────────────────────────────────────────────── */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 550;
+  color: var(--text-2);
+  background: rgb(255 255 255 / 0.05);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c, var(--accent));
+  box-shadow: 0 0 10px var(--c, var(--accent));
+  flex: none;
+}
+
+/* ─── Segmented / toggle chips ────────────────────────────────────────────── */
+
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-2);
+  border: 1px solid var(--line-2);
+  transition: all 0.2s var(--ease);
+}
+
+.segment svg {
+  width: 14px;
+  height: 14px;
+}
+
+.segment:hover {
+  color: var(--text);
+  border-color: var(--line-3);
+}
+
+.segment[aria-pressed='true'],
+.segment[aria-checked='true'] {
+  color: var(--text);
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+
+/* ─── Swatches ────────────────────────────────────────────────────────────── */
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.swatch {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.15) inset;
+  transition: transform 0.2s var(--ease);
+}
+
+.swatch:hover {
+  transform: scale(1.1);
+}
+
+.swatch[aria-checked='true']::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid var(--c);
+}
+
+.customSwatch {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: conic-gradient(from 0deg, #e06c6c, #e0c36c, #72c496, #4fa8d4, #a07ff0, #e06c95, #e06c6c);
+  cursor: pointer;
+}
+
+.customSwatch input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ─── Tags ────────────────────────────────────────────────────────────────── */
+
+.tagBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  min-height: 42px;
+  padding: 6px 8px;
+  cursor: text;
+}
+
+.tagBox:focus-within {
+  border-color: var(--accent-line);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+  padding: 0 4px 0 10px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-mid);
+  color: var(--accent-text);
+}
+
+.tag button {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.tag button:hover {
+  opacity: 1;
+  background: rgb(255 255 255 / 0.1);
+}
+
+.tagInput {
+  flex: 1;
+  min-width: 90px;
+  height: 28px;
+  padding: 0 6px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+/* ─── Empty state ─────────────────────────────────────────────────────────── */
+
+.empty {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: clamp(40px, 8vw, 88px) 24px;
+  border-radius: var(--r-xl);
+  border: 1px dashed var(--line-2);
+  background: radial-gradient(60% 80% at 50% 0%, var(--accent-soft), transparent 70%);
+}
+
+.emptyIcon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-mid);
+  box-shadow: 0 0 40px var(--accent-soft);
+  margin-bottom: 4px;
+}
+
+.emptyIcon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.emptyTitle {
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.emptyBody {
+  max-width: 44ch;
+  color: var(--text-2);
+}
+
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}

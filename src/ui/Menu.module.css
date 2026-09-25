@@ -1,0 +1,101 @@
+.menu {
+  position: fixed;
+  z-index: 300;
+  min-width: 210px;
+  max-width: 300px;
+  padding: 6px;
+  border-radius: var(--r);
+  background: color-mix(in oklab, var(--panel-2) 92%, transparent);
+  backdrop-filter: blur(20px) saturate(1.5);
+  box-shadow:
+    0 0 0 1px var(--line-2),
+    0 20px 50px -10px rgb(0 0 0 / 0.7);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: var(--text);
+  text-align: left;
+  outline: none;
+}
+
+.item:hover,
+.item:focus-visible {
+  background: rgb(255 255 255 / 0.07);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  color: var(--text-3);
+}
+
+.icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.item:hover .icon {
+  color: var(--text-2);
+}
+
+.label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.active {
+  color: var(--accent-text);
+}
+
+.active .icon {
+  color: var(--accent);
+}
+
+.danger {
+  color: color-mix(in oklab, var(--danger) 75%, white);
+}
+
+.danger .icon,
+.danger:hover .icon {
+  color: var(--danger);
+}
+
+.danger:hover,
+.danger:focus-visible {
+  background: color-mix(in oklab, var(--danger) 14%, transparent);
+}
+
+.divider {
+  height: 1px;
+  margin: 6px 4px;
+  background: var(--line);
+}
+
+.heading {
+  padding: 8px 10px 6px;
+  font-size: 10px;
+}
+
+.footer {
+  margin-top: 6px;
+  padding: 8px 10px 4px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--text-3);
+}

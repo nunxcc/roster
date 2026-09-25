@@ -1,0 +1,64 @@
+.portrait {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: color-mix(in oklab, var(--tone) 12%, #0c0c10);
+  container-type: size;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: reveal 0.6s var(--ease) both;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.03);
+  }
+}
+
+.muted .img,
+.muted .sigil {
+  filter: grayscale(1) contrast(1.05) brightness(0.85);
+}
+
+.sigil {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(55% 40% at 50% 40%, color-mix(in oklab, var(--tone) 60%, transparent), transparent 70%),
+    radial-gradient(90% 60% at 50% 110%, color-mix(in oklab, var(--tone) 30%, transparent), transparent 70%),
+    linear-gradient(170deg, color-mix(in oklab, var(--tone) 22%, #101016), #07070a 75%);
+}
+
+.rings {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-radial-gradient(circle at 50% 40%, transparent 0 7cqmin, rgb(255 255 255 / 0.045) 7cqmin calc(7cqmin + 1px)),
+    conic-gradient(from 0deg at 50% 40%, transparent, color-mix(in oklab, var(--tone) 18%, transparent), transparent 30%);
+  mask-image: radial-gradient(circle at 50% 40%, black 20%, transparent 70%);
+}
+
+.letter {
+  position: relative;
+  translate: 0 -10%;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  font-size: min(58cqw, 44cqh);
+  line-height: 1;
+  color: color-mix(in oklab, var(--tone) 55%, white);
+  text-shadow:
+    0 0 40px color-mix(in oklab, var(--tone) 80%, transparent),
+    0 0 2px rgb(255 255 255 / 0.4);
+  mix-blend-mode: screen;
+}

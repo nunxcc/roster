@@ -1,0 +1,28 @@
+.top {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.emblem {
+  border-radius: 28px;
+}
+
+.placeholder {
+  color: var(--accent-text);
+}
+
+.fields {
+  display: grid;
+  gap: 16px;
+}
+
+@media (max-width: 520px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+  .emblem {
+    width: 132px;
+  }
+}

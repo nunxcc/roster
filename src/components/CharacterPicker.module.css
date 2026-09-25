@@ -1,0 +1,102 @@
+.search {
+  position: relative;
+}
+
+.search svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+.search input {
+  padding-left: 40px;
+}
+
+.list {
+  display: grid;
+  gap: 4px;
+  max-height: min(56vh, 520px);
+  overflow-y: auto;
+  margin: 0 -8px;
+  padding: 0 8px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 12px 8px 8px;
+  border-radius: var(--r);
+  text-align: left;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.row:hover {
+  background: rgb(255 255 255 / 0.04);
+}
+
+.on {
+  background: var(--accent-soft);
+  border-color: var(--accent-mid);
+}
+
+.on:hover {
+  background: var(--accent-soft);
+}
+
+.avatar {
+  width: 44px;
+  height: 52px;
+  flex: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--line-2);
+}
+
+.text {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.sub {
+  display: flex;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.faction {
+  color: var(--c);
+  font-weight: 550;
+}
+
+.check {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-3);
+  color: var(--on-accent);
+  transition: all 0.15s;
+}
+
+.on .check {
+  background: var(--accent);
+  border-color: var(--accent);
+}

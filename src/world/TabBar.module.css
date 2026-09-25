@@ -1,0 +1,160 @@
+.wrap {
+  position: sticky;
+  top: var(--topbar-h);
+  z-index: 40;
+  margin-top: 8px;
+  background: linear-gradient(to bottom, color-mix(in oklab, var(--bg) 88%, transparent), color-mix(in oklab, var(--bg) 70%, transparent));
+  backdrop-filter: blur(18px) saturate(1.4);
+  border-bottom: 1px solid var(--line);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 58px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.bar::-webkit-scrollbar {
+  display: none;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.item {
+  position: relative;
+  flex: none;
+}
+
+.tabWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 520;
+  color: var(--text-2);
+  white-space: nowrap;
+  user-select: none;
+  isolation: isolate;
+  transition: color 0.2s var(--ease);
+}
+
+.withCaret .tab {
+  padding-right: 34px;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.active {
+  color: var(--text);
+}
+
+.pill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  box-shadow:
+    0 0 0 1px var(--accent-mid) inset,
+    0 6px 24px -10px var(--accent-line);
+}
+
+.icon {
+  display: grid;
+  color: var(--text-3);
+  transition: color 0.2s;
+}
+
+.active .icon {
+  color: var(--accent-text);
+}
+
+.label {
+  position: relative;
+}
+
+.count {
+  min-width: 20px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-3);
+  background: rgb(255 255 255 / 0.05);
+}
+
+.active .count {
+  color: var(--accent-text);
+  background: var(--accent-soft);
+}
+
+.lock {
+  color: var(--text-3);
+}
+
+.caret {
+  position: absolute;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: var(--accent-text);
+}
+
+.caret:hover,
+.caret[aria-expanded='true'] {
+  background: var(--accent-mid);
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  margin: 0 8px;
+  flex: none;
+  background: var(--line-2);
+}
+
+.add {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  margin-left: 4px;
+  border-radius: 50%;
+  color: var(--text-3);
+  border: 1px dashed var(--line-3);
+  transition: all 0.2s var(--ease);
+}
+
+.add:hover {
+  color: var(--accent-text);
+  border-color: var(--accent-line);
+  border-style: solid;
+  background: var(--accent-soft);
+  rotate: 90deg;
+}

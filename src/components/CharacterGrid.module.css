@@ -1,0 +1,10 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 44vw), 1fr));
+  gap: clamp(12px, 1.6vw, 22px);
+}
+
+.compact {
+  grid-template-columns: repeat(auto-fill, minmax(min(160px, 42vw), 1fr));
+  gap: 12px;
+}

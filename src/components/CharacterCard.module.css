@@ -1,0 +1,275 @@
+.card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  container-type: inline-size;
+}
+
+.lifted {
+  z-index: 170;
+}
+
+.tilt {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  box-shadow:
+    0 0 0 1px var(--line-2),
+    0 18px 40px -22px rgb(0 0 0 / 0.9);
+  transition: box-shadow 0.4s var(--ease);
+}
+
+.card:hover .tilt,
+.card:focus-within .tilt {
+  box-shadow:
+    0 0 0 1px var(--accent-line),
+    0 30px 60px -24px color-mix(in oklab, var(--accent) 45%, black),
+    0 0 50px -20px var(--accent-mid);
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.art img {
+  transition: transform 1s var(--ease);
+}
+
+.card:hover .art img {
+  transform: scale(1.05);
+}
+
+.shade,
+.glare,
+.frame {
+  position: absolute;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.shade {
+  inset: 0;
+  background:
+    linear-gradient(to top, rgb(6 6 9 / 0.95) 0%, rgb(6 6 9 / 0.7) 22%, transparent 55%),
+    linear-gradient(to bottom, rgb(6 6 9 / 0.55), transparent 22%);
+}
+
+.glare {
+  inset: 0;
+  opacity: 0;
+  mix-blend-mode: plus-lighter;
+  transition: opacity 0.4s var(--ease);
+}
+
+.card:hover .glare {
+  opacity: 1;
+}
+
+/* Tarot-card inner hairline */
+.frame {
+  inset: 7px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--accent) 22%, transparent);
+  transition: border-color 0.4s var(--ease), inset 0.4s var(--ease);
+}
+
+.frame::before,
+.frame::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  translate: -50% 0;
+  rotate: 45deg;
+  background: var(--bg);
+  border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
+  transition: border-color 0.4s var(--ease);
+}
+
+.frame::before {
+  top: -4px;
+}
+
+.frame::after {
+  bottom: -4px;
+}
+
+.card:hover .frame {
+  inset: 6px;
+  border-color: var(--accent-line);
+}
+
+.card:hover .frame::before,
+.card:hover .frame::after {
+  border-color: var(--accent);
+}
+
+.head {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.numeral {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: color-mix(in oklab, var(--accent) 55%, white);
+  text-shadow: 0 1px 8px rgb(0 0 0 / 0.8);
+}
+
+.photos {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-2);
+  background: rgb(6 6 9 / 0.55);
+  backdrop-filter: blur(8px);
+  transition: opacity 0.2s var(--ease);
+}
+
+.card:hover .photos,
+.card:focus-within .photos {
+  opacity: 0;
+}
+
+.body {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.faction,
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.faction {
+  color: color-mix(in oklab, var(--accent) 60%, white);
+  margin-bottom: 2px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.status {
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  color: var(--c);
+  background: rgb(6 6 9 / 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in oklab, var(--c) 35%, transparent);
+  letter-spacing: 0.08em;
+}
+
+.name {
+  font-size: clamp(19px, 11cqi, 27px);
+  font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 72;
+  line-height: 1.05;
+  text-shadow: 0 2px 16px rgb(0 0 0 / 0.6);
+  overflow-wrap: anywhere;
+}
+
+.epithet {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(12.5px, 6.2cqi, 14.5px);
+  color: var(--text-2);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.deceased .name {
+  color: var(--text-2);
+}
+
+.hit {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.hit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.more {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--text);
+  background: rgb(8 8 12 / 0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line-2);
+  opacity: 0;
+  scale: 0.85;
+  transition:
+    opacity 0.2s var(--ease),
+    scale 0.2s var(--ease),
+    background 0.2s;
+}
+
+.card:hover .more,
+.more:focus-visible,
+.more[aria-expanded='true'] {
+  opacity: 1;
+  scale: 1;
+}
+
+.more:hover {
+  background: rgb(20 20 28 / 0.9);
+}
+
+@media (hover: none) {
+  .more {
+    opacity: 1;
+    scale: 1;
+  }
+}

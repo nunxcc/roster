@@ -1,0 +1,127 @@
+.loading {
+  min-height: 60vh;
+}
+
+/* ─── Ambient backdrop ────────────────────────────────────────────────────── */
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambientImage {
+  position: absolute;
+  inset: -10%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(100px) saturate(1.4);
+  opacity: 0.22;
+}
+
+.ambientGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 15% -5%, var(--accent-mid), transparent 70%),
+    radial-gradient(40% 40% at 100% 10%, var(--accent-soft), transparent 70%);
+  opacity: 0.8;
+}
+
+/* ─── Hero ────────────────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.cover {
+  position: absolute;
+  inset: calc(var(--topbar-h) * -1) 0 -40px;
+  z-index: -1;
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0.55;
+  mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+}
+
+.cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgb(8 8 11 / 0.85), rgb(8 8 11 / 0.2) 70%);
+}
+
+.heroInner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: clamp(40px, 8vh, 88px);
+  padding-bottom: 28px;
+}
+
+.heroEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent-text);
+}
+
+.heroDot {
+  width: 6px;
+  height: 6px;
+  rotate: 45deg;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.title {
+  margin-top: 16px;
+  font-size: clamp(44px, 7.5vw, 104px);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  font-weight: 350;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
+.tagline {
+  margin-top: 14px;
+  max-width: 52ch;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(17px, 1.6vw, 21px);
+  color: var(--text-2);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin-top: 22px;
+  font-size: 13.5px;
+  color: var(--text-3);
+}
+
+.stats b {
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.editWorld {
+  flex: none;
+}
+
+.content {
+  padding-bottom: 120px;
+}
+
+@media (max-width: 640px) {
+  .heroInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
