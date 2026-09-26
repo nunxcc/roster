@@ -8,21 +8,48 @@
   border-bottom: 1px solid var(--line);
 }
 
+.row {
+  display: flex;
+  align-items: center;
+  height: 58px;
+}
+
+/* Only the tabs scroll; the + stays outside, right after them. The 4px of padding keeps
+   focus rings unclipped without moving the tabs off the page grid. */
 .bar {
+  --fade-l: 0px;
+  --fade-r: 0px;
   display: flex;
   align-items: center;
   gap: 4px;
-  height: 58px;
+  min-width: 0;
+  height: 100%;
+  margin-inline: -4px;
+  padding-inline: 4px;
   overflow-x: auto;
   scrollbar-width: none;
+  scroll-padding-inline: 44px;
+  mask-image: linear-gradient(to right, transparent, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent);
+}
+
+/* Fade whichever edge has tabs hidden past it (set from TabBar.tsx) */
+.bar[data-more-left] {
+  --fade-l: 40px;
+}
+
+.bar[data-more-right] {
+  --fade-r: 40px;
 }
 
 .bar::-webkit-scrollbar {
   display: none;
 }
 
+/* Never shrink: the tab icons are SVGs with max-width: 100%, which lets a flex item
+   squeeze below its content and slide the + button underneath the last tab. */
 .list {
   display: flex;
+  flex: none;
   align-items: center;
   gap: 4px;
 }
@@ -144,7 +171,7 @@
   width: 34px;
   height: 34px;
   flex: none;
-  margin-left: 4px;
+  margin-left: 8px;
   border-radius: 50%;
   color: var(--text-3);
   border: 1px dashed var(--line-3);
